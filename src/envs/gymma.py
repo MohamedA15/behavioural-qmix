@@ -5,6 +5,7 @@ import gymnasium as gym
 from gymnasium.spaces import flatdim
 from gymnasium.wrappers import TimeLimit
 import numpy as np
+import lbforaging
 
 from .multiagentenv import MultiAgentEnv
 from .wrappers import FlattenObservation

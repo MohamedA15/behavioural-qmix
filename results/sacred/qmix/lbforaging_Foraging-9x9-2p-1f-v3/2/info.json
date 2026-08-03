@@ -1,0 +1,58 @@
+{
+  "episode": [
+    450253
+  ],
+  "episode_T": [
+    450253
+  ],
+  "test_collision_count_mean": [
+    0.02
+  ],
+  "test_collision_count_mean_T": [
+    450253
+  ],
+  "test_constraint_violations_mean": [
+    0.0
+  ],
+  "test_constraint_violations_mean_T": [
+    450253
+  ],
+  "test_ep_length_mean": [
+    30.04
+  ],
+  "test_ep_length_mean_T": [
+    450253
+  ],
+  "test_idle_agent_ratio_mean": [
+    0.38
+  ],
+  "test_idle_agent_ratio_mean_T": [
+    450253
+  ],
+  "test_return_mean": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.64
+    }
+  ],
+  "test_return_mean_T": [
+    450253
+  ],
+  "test_return_std": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.48
+    }
+  ],
+  "test_return_std_T": [
+    450253
+  ],
+  "test_task_success_mean": [
+    0.64
+  ],
+  "test_task_success_mean_T": [
+    450253
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "ep_length_mean": [
+    50.0
+  ],
+  "ep_length_mean_T": [
+    50
+  ],
+  "episode": [
+    2,
+    4,
+    6,
+    10,
+    13,
+    15,
+    17,
+    20,
+    22
+  ],
+  "episode_T": [
+    100,
+    200,
+    300,
+    429,
+    547,
+    647,
+    747,
+    872,
+    972
+  ],
+  "epsilon": [
+    1.0
+  ],
+  "epsilon_T": [
+    50
+  ],
+  "return_mean": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    }
+  ],
+  "return_mean_T": [
+    50
+  ],
+  "return_std": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    }
+  ],
+  "return_std_T": [
+    50
+  ],
+  "test_ep_length_mean": [
+    50.0,
+    50.0
+  ],
+  "test_ep_length_mean_T": [
+    50,
+    597
+  ],
+  "test_return_mean": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    },
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    }
+  ],
+  "test_return_mean_T": [
+    50,
+    597
+  ],
+  "test_return_std": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    },
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    }
+  ],
+  "test_return_std_T": [
+    50,
+    597
+  ]
+}

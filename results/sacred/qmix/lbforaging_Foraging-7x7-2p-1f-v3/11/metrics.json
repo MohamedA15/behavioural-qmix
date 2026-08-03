@@ -1,0 +1,90 @@
+{
+  "episode": {
+    "steps": [
+      450138
+    ],
+    "timestamps": [
+      "2026-07-30T12:40:20.646753"
+    ],
+    "values": [
+      450138
+    ]
+  },
+  "test_collision_count_mean": {
+    "steps": [
+      450138
+    ],
+    "timestamps": [
+      "2026-07-30T12:40:20.646753"
+    ],
+    "values": [
+      0.01
+    ]
+  },
+  "test_constraint_violations_mean": {
+    "steps": [
+      450138
+    ],
+    "timestamps": [
+      "2026-07-30T12:40:20.646753"
+    ],
+    "values": [
+      0.0
+    ]
+  },
+  "test_ep_length_mean": {
+    "steps": [
+      450138
+    ],
+    "timestamps": [
+      "2026-07-30T12:40:20.646753"
+    ],
+    "values": [
+      24.04
+    ]
+  },
+  "test_idle_agent_ratio_mean": {
+    "steps": [
+      450138
+    ],
+    "timestamps": [
+      "2026-07-30T12:40:20.646753"
+    ],
+    "values": [
+      0.125
+    ]
+  },
+  "test_return_mean": {
+    "steps": [
+      450138
+    ],
+    "timestamps": [
+      "2026-07-30T12:40:20.646753"
+    ],
+    "values": [
+      0.89
+    ]
+  },
+  "test_return_std": {
+    "steps": [
+      450138
+    ],
+    "timestamps": [
+      "2026-07-30T12:40:20.646753"
+    ],
+    "values": [
+      0.31288975694324034
+    ]
+  },
+  "test_task_success_mean": {
+    "steps": [
+      450138
+    ],
+    "timestamps": [
+      "2026-07-30T12:40:20.646753"
+    ],
+    "values": [
+      0.89
+    ]
+  }
+}

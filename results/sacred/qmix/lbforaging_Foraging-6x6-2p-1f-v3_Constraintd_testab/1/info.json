@@ -1,0 +1,114 @@
+{
+  "collision_count_mean": [
+    0.0
+  ],
+  "collision_count_mean_T": [
+    50
+  ],
+  "constraint_violations_mean": [
+    0.0
+  ],
+  "constraint_violations_mean_T": [
+    50
+  ],
+  "ep_length_mean": [
+    50.0
+  ],
+  "ep_length_mean_T": [
+    50
+  ],
+  "epsilon": [
+    1.0
+  ],
+  "epsilon_T": [
+    50
+  ],
+  "idle_agent_ratio_mean": [
+    0.5
+  ],
+  "idle_agent_ratio_mean_T": [
+    50
+  ],
+  "participation_violation_rate": [
+    0.07499999552965164
+  ],
+  "participation_violation_rate_T": [
+    1182
+  ],
+  "return_mean": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    }
+  ],
+  "return_mean_T": [
+    50
+  ],
+  "return_std": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    }
+  ],
+  "return_std_T": [
+    50
+  ],
+  "task_success_mean": [
+    0.0
+  ],
+  "task_success_mean_T": [
+    50
+  ],
+  "test_collision_count_mean": [
+    0.12
+  ],
+  "test_collision_count_mean_T": [
+    50
+  ],
+  "test_constraint_violations_mean": [
+    0.0
+  ],
+  "test_constraint_violations_mean_T": [
+    50
+  ],
+  "test_ep_length_mean": [
+    46.08
+  ],
+  "test_ep_length_mean_T": [
+    50
+  ],
+  "test_idle_agent_ratio_mean": [
+    0.865
+  ],
+  "test_idle_agent_ratio_mean_T": [
+    50
+  ],
+  "test_return_mean": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.08
+    }
+  ],
+  "test_return_mean_T": [
+    50
+  ],
+  "test_return_std": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.2712931993250107
+    }
+  ],
+  "test_return_std_T": [
+    50
+  ],
+  "test_task_success_mean": [
+    0.08
+  ],
+  "test_task_success_mean_T": [
+    50
+  ]
+}

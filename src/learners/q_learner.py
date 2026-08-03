@@ -5,6 +5,13 @@ from torch.optim import Adam
 
 from components.episode_buffer import EpisodeBatch
 from components.standarize_stream import RunningMeanStd
+from constraints import (
+    extract_state_info,
+    participation_loss,
+    interference_loss,
+    commitment_loss,
+    target_loss,
+)
 from modules.mixers.vdn import VDNMixer
 from modules.mixers.qmix import QMixer
 
@@ -103,6 +110,9 @@ class QLearner:
         else:
             target_max_qvals = target_mac_out.max(dim=3)[0]
 
+        # Save per-agent Q-values before mixing
+        chosen_action_qvals_per_agent = chosen_action_qvals.clone()
+
         # Mix
         if self.mixer is not None:
             chosen_action_qvals = self.mixer(
@@ -129,6 +139,9 @@ class QLearner:
         # Td-error
         td_error = chosen_action_qvals - targets.detach()
 
+        # Save a per-agent mask for constraint losses before expanding for TD error
+        constraint_mask = mask.clone()
+
         mask = mask.expand_as(td_error)
 
         # 0-out the targets that came from padded data
@@ -136,6 +149,118 @@ class QLearner:
 
         # Normal L2 loss, take mean over actual data
         loss = (masked_td_error**2).sum() / mask.sum()
+
+        # =====================================================
+        # Constraint A - Participation
+        # =====================================================
+
+        obs = batch["obs"][:, :-1]
+
+        positions, agent_levels, food_positions, food_levels = extract_state_info(
+           obs,
+           self.n_agents,
+          )
+
+        l_part, part_violation = participation_loss(
+            positions,
+            food_positions,
+            food_levels,
+            chosen_action_qvals_per_agent,
+            constraint_mask,
+             N=3,
+          )
+
+        self.logger.log_stat(
+            "participation_violation_rate",
+            part_violation.mean().item(),
+            t_env,
+          )
+
+        loss = loss + self.args.lambda_part * l_part
+
+        # =====================================================
+        # Constraint B - Interference Avoidance
+        # =====================================================
+
+        obs = batch["obs"][:, :-1]
+        
+        positions, agent_levels, food_positions, food_levels = extract_state_info(
+             obs,
+             self.n_agents,
+         )
+        
+        l_interf, interf_violation = interference_loss(
+             positions,
+             actions,
+             chosen_action_qvals_per_agent,
+             constraint_mask,
+             self.args.grid_size,
+          )
+        
+        self.logger.log_stat(
+              "interference_violation_rate",
+              interf_violation.mean().item(),
+              t_env,
+          )
+        
+        loss = loss + self.args.lambda_interference * l_interf
+
+        # =====================================================
+        # Constraint C - Cooperative Commitment
+        # =====================================================
+
+        #obs = batch["obs"][:, :-1]
+
+        #positions, agent_levels, food_positions, food_levels = extract_state_info(
+        #     obs,
+         #    self.n_agents,
+         #)
+
+        #l_commit, commit_violation = commitment_loss(
+         #    positions,
+          #   agent_levels,
+           #  food_positions,
+            # food_levels,
+             #chosen_action_qvals_per_agent,
+             #constraint_mask,
+         #)
+
+        #self.logger.log_stat(
+         #    "commitment_violation_rate",
+          #   commit_violation.mean().item(),
+           #  t_env,
+         #)
+
+        #loss = loss + self.args.lambda_commit * l_commit
+
+
+         # =====================================================
+        # Constraint D - Cooperative Target Selection
+        # =====================================================
+
+        obs = batch["obs"][:, :-1]
+
+        positions, agent_levels, food_positions, food_levels = extract_state_info(
+            obs,
+            self.n_agents,
+        )
+
+        l_target, target_violation = target_loss(
+           positions,
+           agent_levels,
+           food_positions,
+           food_levels,
+           chosen_action_qvals_per_agent,
+           constraint_mask,
+        )
+
+        self.logger.log_stat(
+            "target_violation_rate",
+            target_violation.mean().item(),
+            t_env,
+        )
+
+        loss = loss + self.args.lambda_target * l_target
 
         # Optimise
         self.optimiser.zero_grad()
@@ -168,6 +293,8 @@ class QLearner:
                 / (mask_elems * self.args.n_agents),
                 t_env,
             )
+            #self.logger.log_stat("commitment_loss", l_commit.item(), t_env)
+            #self.logger.log_stat("target_loss", l_target.item(), t_env)
             self.logger.log_stat(
                 "target_mean",
                 (targets * mask).sum().item() / (mask_elems * self.args.n_agents),

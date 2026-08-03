@@ -1,0 +1,115 @@
+{
+  "artifacts": [],
+  "command": "my_main",
+  "experiment": {
+    "base_dir": "C:\\Users\\USER\\Desktop\\final_project\\epymarl\\src",
+    "dependencies": [
+      "numpy==2.4.4",
+      "pyyaml==5.3.1",
+      "sacred==0.8.7",
+      "torch==2.11.0+cu128"
+    ],
+    "mainfile": "main.py",
+    "name": "pymarl",
+    "repositories": [
+      {
+        "commit": "cbc38c09588064eab978501d0f12c2cf58fa7fc2",
+        "dirty": true,
+        "url": "https://github.com/uoe-agents/epymarl.git"
+      },
+      {
+        "commit": "cbc38c09588064eab978501d0f12c2cf58fa7fc2",
+        "dirty": true,
+        "url": "https://github.com/uoe-agents/epymarl.git"
+      },
+      {
+        "commit": "cbc38c09588064eab978501d0f12c2cf58fa7fc2",
+        "dirty": true,
+        "url": "https://github.com/uoe-agents/epymarl.git"
+      }
+    ],
+    "sources": [
+      [
+        "main.py",
+        "_sources\\main_09d560e9d389ea512a2a18655e52af29.py"
+      ],
+      [
+        "run.py",
+        "_sources\\run_e8bb76a4f68d9ddcab78be2d72e9b3f6.py"
+      ],
+      [
+        "utils\\logging.py",
+        "_sources\\logging_31034dff59fae30d08263ccee141603c.py"
+      ]
+    ]
+  },
+  "heartbeat": "2026-07-10T14:20:15.906013",
+  "host": {
+    "ENV": {},
+    "cpu": "AMD Ryzen 9 9950X3D 16-Core Processor",
+    "gpus": {
+      "driver_version": "595.79",
+      "gpus": [
+        {
+          "model": "NVIDIA GeForce RTX 5080",
+          "persistence_mode": false,
+          "total_memory": 16303
+        }
+      ]
+    },
+    "hostname": "DESKTOP-LHUAO6K",
+    "os": [
+      "Windows",
+      "Windows-10-10.0.26200-SP0"
+    ],
+    "python_version": "3.11.9"
+  },
+  "meta": {
+    "command": "my_main",
+    "config_updates": {
+      "env_args": {
+        "key": "lbforaging:Foraging-6x6-2p-1f-v3"
+      },
+      "experiment_suffix": "_ConstraintA",
+      "seed": 1,
+      "t_max": 100000
+    },
+    "named_configs": [],
+    "options": {
+      "--beat-interval": null,
+      "--capture": null,
+      "--comment": null,
+      "--debug": false,
+      "--enforce_clean": false,
+      "--file_storage": null,
+      "--force": false,
+      "--help": false,
+      "--id": null,
+      "--loglevel": null,
+      "--mongo_db": null,
+      "--name": null,
+      "--pdb": false,
+      "--print-config": false,
+      "--priority": null,
+      "--queue": false,
+      "--s3": null,
+      "--sql": null,
+      "--tiny_db": null,
+      "--unobserved": false,
+      "COMMAND": null,
+      "UPDATE": [
+        "env_args.key=lbforaging:Foraging-6x6-2p-1f-v3",
+        "experiment_suffix=_ConstraintA",
+        "t_max=100000",
+        "seed=1"
+      ],
+      "help": false,
+      "with": true
+    }
+  },
+  "resources": [],
+  "result": null,
+  "start_time": "2026-07-10T14:16:11.838153",
+  "status": "COMPLETED",
+  "stop_time": "2026-07-10T14:20:15.850014"
+}

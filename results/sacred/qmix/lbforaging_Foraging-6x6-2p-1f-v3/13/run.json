@@ -1,0 +1,124 @@
+{
+  "artifacts": [],
+  "command": "my_main",
+  "experiment": {
+    "base_dir": "C:\\Users\\USER\\Desktop\\final_project\\epymarl\\src",
+    "dependencies": [
+      "numpy==2.4.4",
+      "pyyaml==5.3.1",
+      "sacred==0.8.7",
+      "torch==2.11.0+cu128"
+    ],
+    "mainfile": "main.py",
+    "name": "pymarl",
+    "repositories": [
+      {
+        "commit": "cbc38c09588064eab978501d0f12c2cf58fa7fc2",
+        "dirty": true,
+        "url": "https://github.com/uoe-agents/epymarl.git"
+      },
+      {
+        "commit": "cbc38c09588064eab978501d0f12c2cf58fa7fc2",
+        "dirty": true,
+        "url": "https://github.com/uoe-agents/epymarl.git"
+      },
+      {
+        "commit": "cbc38c09588064eab978501d0f12c2cf58fa7fc2",
+        "dirty": true,
+        "url": "https://github.com/uoe-agents/epymarl.git"
+      }
+    ],
+    "sources": [
+      [
+        "main.py",
+        "_sources\\main_b434bb064d443859b61a5a0f16cea28d.py"
+      ],
+      [
+        "run.py",
+        "_sources\\run_e8bb76a4f68d9ddcab78be2d72e9b3f6.py"
+      ],
+      [
+        "utils\\logging.py",
+        "_sources\\logging_31034dff59fae30d08263ccee141603c.py"
+      ]
+    ]
+  },
+  "fail_trace": [
+    "Traceback (most recent call last):\n",
+    "  File \"C:\\Users\\USER\\Desktop\\final_project\\.venv\\Lib\\site-packages\\sacred\\config\\captured_function.py\", line 42, in captured_function\n    result = wrapped(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^\n",
+    "  File \"C:\\Users\\USER\\Desktop\\final_project\\epymarl\\src\\main.py\", line 44, in my_main\n    run(_run, config, _log)\n",
+    "  File \"C:\\Users\\USER\\Desktop\\final_project\\epymarl\\src\\run.py\", line 65, in run\n    run_sequential(args=args, logger=logger)\n",
+    "  File \"C:\\Users\\USER\\Desktop\\final_project\\epymarl\\src\\run.py\", line 201, in run_sequential\n    learner.train(episode_sample, runner.t_env, episode)\n",
+    "  File \"C:\\Users\\USER\\Desktop\\final_project\\epymarl\\src\\learners\\q_learner.py\", line 178, in train\n    print(f\"Constraint Loss: {l_part.item():.6f}\")\n",
+    "OSError: [WinError 1] Incorrect function\n"
+  ],
+  "heartbeat": "2026-07-09T14:43:57.335157",
+  "host": {
+    "ENV": {},
+    "cpu": "AMD Ryzen 9 9950X3D 16-Core Processor",
+    "gpus": {
+      "driver_version": "595.79",
+      "gpus": [
+        {
+          "model": "NVIDIA GeForce RTX 5080",
+          "persistence_mode": false,
+          "total_memory": 16303
+        }
+      ]
+    },
+    "hostname": "DESKTOP-LHUAO6K",
+    "os": [
+      "Windows",
+      "Windows-10-10.0.26200-SP0"
+    ],
+    "python_version": "3.11.9"
+  },
+  "meta": {
+    "command": "my_main",
+    "config_updates": {
+      "env_args": {
+        "key": "lbforaging:Foraging-6x6-2p-1f-v3"
+      },
+      "label": "6x6_constraintA_smoketest",
+      "seed": 1,
+      "t_max": 20000
+    },
+    "named_configs": [],
+    "options": {
+      "--beat-interval": null,
+      "--capture": null,
+      "--comment": null,
+      "--debug": false,
+      "--enforce_clean": false,
+      "--file_storage": null,
+      "--force": false,
+      "--help": false,
+      "--id": null,
+      "--loglevel": null,
+      "--mongo_db": null,
+      "--name": null,
+      "--pdb": false,
+      "--print-config": false,
+      "--priority": null,
+      "--queue": false,
+      "--s3": null,
+      "--sql": null,
+      "--tiny_db": null,
+      "--unobserved": false,
+      "COMMAND": null,
+      "UPDATE": [
+        "env_args.key=lbforaging:Foraging-6x6-2p-1f-v3",
+        "t_max=20000",
+        "seed=1",
+        "label=6x6_constraintA_smoketest"
+      ],
+      "help": false,
+      "with": true
+    }
+  },
+  "resources": [],
+  "result": null,
+  "start_time": "2026-07-09T14:43:48.434991",
+  "status": "FAILED",
+  "stop_time": "2026-07-09T14:43:57.339155"
+}

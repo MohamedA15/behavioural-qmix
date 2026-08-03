@@ -3,7 +3,9 @@ import sys
 
 from .multiagentenv import MultiAgentEnv
 from .gymma import GymmaWrapper
-from .smaclite_wrapper import SMACliteWrapper
+
+# Disabled because SMAClite is not installed and is not needed for this project.
+# from .smaclite_wrapper import SMACliteWrapper
 
 
 if sys.platform == "linux":
@@ -16,16 +18,21 @@ def __check_and_prepare_smac_kwargs(kwargs):
     assert "common_reward" in kwargs and "reward_scalarisation" in kwargs
     assert kwargs[
         "common_reward"
-    ], "SMAC only supports common reward. Please set `common_reward=True` or choose a different environment that supports general sum rewards."
+    ], (
+        "SMAC only supports common reward. "
+        "Please set `common_reward=True` or choose a different environment."
+    )
     del kwargs["common_reward"]
     del kwargs["reward_scalarisation"]
     assert "map_name" in kwargs, "Please specify the map_name in the env_args"
     return kwargs
 
 
-def smaclite_fn(**kwargs) -> MultiAgentEnv:
-    kwargs = __check_and_prepare_smac_kwargs(kwargs)
-    return SMACliteWrapper(**kwargs)
+# Disabled because SMAClite is not installed.
+#
+# def smaclite_fn(**kwargs) -> MultiAgentEnv:
+#     kwargs = __check_and_prepare_smac_kwargs(kwargs)
+#     return SMACliteWrapper(**kwargs)
 
 
 def gymma_fn(**kwargs) -> MultiAgentEnv:
@@ -34,12 +41,12 @@ def gymma_fn(**kwargs) -> MultiAgentEnv:
 
 
 REGISTRY = {}
-REGISTRY["smaclite"] = smaclite_fn
+
+# REGISTRY["smaclite"] = smaclite_fn
 REGISTRY["gymma"] = gymma_fn
 
 
-# registering both smac and smacv2 causes a pysc2 error
-# --> dynamically register the needed env
+# Register SMAC dynamically if required
 def register_smac():
     from .smac_wrapper import SMACWrapper
 
@@ -50,6 +57,7 @@ def register_smac():
     REGISTRY["sc2"] = smac_fn
 
 
+# Register SMACv2 dynamically if required
 def register_smacv2():
     from .smacv2_wrapper import SMACv2Wrapper
 
@@ -58,3 +66,4 @@ def register_smacv2():
         return SMACv2Wrapper(**kwargs)
 
     REGISTRY["sc2v2"] = smacv2_fn
+    
