@@ -13,7 +13,7 @@ Training Entry Point: src/main.py
 ```text
 behavioural-qmix/
 ├── src/
-│   ├── constraints.py   # 👈 Core behavioural constraint loss implementations
+│   ├── constraints.py   #  Core behavioural constraint loss implementations
 │   ├── learners/        # QMIX & Behavioural QMIX loss routines
 │   ├── controllers/     # Multi-agent controllers
 │   ├── envs/            # Environment wrappers
